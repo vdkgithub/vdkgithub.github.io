@@ -7,20 +7,19 @@
     <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
     <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/knockout/knockout-3.3.0.js"></script>
     <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="javascripts/linq.min.js"></script>
     <title>Portflio</title>
 </head>
 <body>
     <div class="main-wrap">
         <div class="header">  
-            <div id="Profile" class="header-menu" data-bind="click: menuClick">Profile</div>
-            <div id="Projects" class="header-menu" data-bind="click: menuClick">Projects</div>
+            <div id="Profile" class="header-menu" data-bind="click: menuClick.bind(null,'Profile')">Profile</div>
+            <div id="Projects" class="header-menu" data-bind="click: menuClick.bind(null,'Projects')">Projects</div>
         </div>
         <div class="main-body"> 
-            <div id="projects-content">   
-                <ul id="prjcs-menu">     
-                    <li class="prjcs-m-item" data-bind="click: prClick">Insys Web</li>
-                    <li class="prjcs-m-item" data-bind="click: prClick">Way Finder Central Control</li>
-                    <li class="prjcs-m-item" data-bind="click: prClick">Way Finder</li>
+            <div id="projects-content" data-bind="visible: mData.CurrentMenu() == 'Projects'">   
+                <ul id="prjcs-menu" data-bind="foreach: mData.prMenus">     
+                    <li class="prjcs-m-item" data-bind="text: Name , click: prClick "></li>
                 </ul>
                 <div id="prjcs-body">
                     <div id="prjcs-gallery"></div>

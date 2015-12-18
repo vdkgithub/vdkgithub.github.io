@@ -1,4 +1,6 @@
 {
-  name: 'a',
-  id: 0
+  "Rows": [
+    { "Name": "Projects" },
+    { "Name": "Profile" }
+  ],
 }

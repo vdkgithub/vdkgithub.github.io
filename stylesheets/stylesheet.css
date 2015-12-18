@@ -31,6 +31,8 @@ div.main-body {
     width: 100%;
     position: relative;
     display: table;
+    transition: opacity 1s ease-in-out;
+    opacity: 0;
 }
 
 div.header-menu {
